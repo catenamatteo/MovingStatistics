@@ -1,15 +1,12 @@
 package eu.nicecode.stats;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
 
-import eu.nicecode.stats.MovingStatistics;
+import static junit.framework.TestCase.assertEquals;
 
 public class MovingStatisticsTest {
 
