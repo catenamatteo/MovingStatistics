@@ -1,3 +1,7 @@
 .idea
 target
 *swp
+.classpath
+.project
+bin
+.settings
