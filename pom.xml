@@ -4,19 +4,12 @@
 	<groupId>MovingStatistics</groupId>
 	<artifactId>MovingStatistics</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+	<properties>
+		<project.source.charset>UTF-8</project.source.charset>
+		<project.source.encoding>UTF-8</project.source.encoding>
+		<java.version.source>1.8</java.version.source>
+		<java.version.target>1.8</java.version.target>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>it.unimi.dsi</groupId>
@@ -27,7 +20,49 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<encoding>${project.source.encoding}</encoding>
+					<source>${java.version.source}</source>
+					<target>${java.version.target}</target>
+				</configuration>
+				<version>3.3</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<reportOutputDirectory>javadoc</reportOutputDirectory>
+					<destDir>javadoc</destDir>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<formats>
+						<format>html</format>
+						<format>xml</format>
+					</formats>
+					<check />
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
